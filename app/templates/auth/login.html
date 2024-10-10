@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>{% block title %}Iniciar Sesión{% endblock %}</title>
+</head>
+<body>
+    {% block content %}
+    <div class="login-container">
+        <div class="login-form">
+            <a href="{{ url_for('Home.inicio') }}" class="volver"><i class="fa-solid fa-arrow-left"></i></a>
+           <a href="{{ url_for('Home.inicio') }}"><img src="{{ url_for('static', filename='img/Logo_GPS.png') }}" class="logo" alt="Logo"></a>
+            <h2>Iniciar Sesión</h2>
+            <form method="post">
+                <label for="Usuario">Usuario:</label>
+                <input type="text" id="Usuario" name="Usuario" placeholder="Usuario" required>
+                <label for="Contraseña">Contraseña:</label>
+                <input type="password" id="Contraseña" name="Contraseña" placeholder="*****" required>
+                <input class="btn" type="submit" value="Iniciar Sesión">
+            </form>
+            <div class="register-link">
+                <p>¿No tienes una cuenta? <a href="{{ url_for('auth.register') }}">Regístrate aquí</a></p>
+                <p>¿Eres Profesional y quieres prestar tus servicios? <a href="{{ url_for('Profesional.registro_profesionales') }}">Regístrate aquí</a></p>
+            </div>
+            <div>
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <ul id="flash-messages">
+                    {% for category, message in messages %}
+                        <li class="{{ category }} flash-message">{{ message }}</li>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+                {% endwith %}
+            </div>
+        </div>
+        <img class="login-image" src="{{ url_for('static', filename='img/Dibujo.png') }}" alt="Gráfico derecho">
+    </div>
+    {% endblock %}
+
+    <script src="{{ url_for('static', filename='js/alerta.js') }}"></script>
+</body>
+</html>
+

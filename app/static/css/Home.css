@@ -1,0 +1,86 @@
+/* Estilos generales */
+body, html {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f4f4f9; /* Fondo suave para un look moderno */
+}
+
+/* Estilo del mapa */
+#map {
+    height: calc(100vh - 80px); /* El mapa ocupará la pantalla completa menos la altura de la navbar */
+    width: 100%;
+}
+
+/* Estilos de la cabecera y la barra de navegación */
+.header {
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 10px 30px;
+}
+
+/* Contenedor de la cabecera */
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Estilos del logo */
+.logo {
+    width: 100px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Estilos del menú de la barra de navegación */
+.navbar ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar ul li {
+    margin-right: 30px; /* Espacio entre los elementos del menú */
+}
+
+.navbar a {
+    color: #333;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 10px 15px;
+    text-decoration: none;
+    transition: color 0.3s ease, border-bottom 0.3s ease;  /* Animación suave en hover */
+}
+
+.navbar a:hover {
+    color: #007bff; /* Cambia el color del enlace al pasar el ratón */
+    border-bottom: 2px solid #007bff; /* Añadir borde inferior al pasar el ratón */
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar ul li {
+        margin: 10px 0;
+    }
+
+    .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #map {
+        height: calc(100vh - 100px); /* Ajustar el tamaño del mapa en pantallas más pequeñas */
+    }
+}
+

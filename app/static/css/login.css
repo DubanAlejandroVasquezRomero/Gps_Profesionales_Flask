@@ -1,0 +1,175 @@
+/* General */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Contenedor principal */
+.login-container {
+    display: flex;
+    width: 950px; /* Ancho del contenedor */
+    height: 600px; /* Altura fija */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: white;
+}
+
+/* Formulario de login */
+.login-form {
+    position: relative;
+    flex: 1;
+    padding: 20px;
+    flex-direction: column;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    max-width: 400px;
+    height: 100%;
+}
+
+.login-form h2 {
+    color: #8f8e8e;
+    text-align: left;
+    margin-top: 40px;
+    margin-left: 30px;
+}
+
+.login-form label {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #0059fd;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #8f8e8e;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.register-link p {
+    font-size: 14px;
+    color: #555;
+    text-align: center;
+}
+
+.register-link a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+/* Sección de imagen */
+.login-image {
+    flex: 1;
+    background-color: #fafafa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+.logo {
+    margin-right: 15px;
+    position: absolute;
+    top: 20px;
+    width: 110px;
+    height: auto;
+    left: 5px;
+    object-fit: contain;
+    margin-bottom: 10px;
+    padding: 0 1px;
+}
+
+.login-form input ,label {
+    margin-top: 20px;
+}
+
+/* Hacer el diseño responsivo con media queries */
+@media (max-width: 768px) {
+    .login-container {
+        flex-direction: column; /* Apila los elementos uno debajo del otro */
+        width: 100%; /* Ocupa todo el ancho de la pantalla */
+        height: auto; /* Deja que la altura se ajuste automáticamente */
+    }
+
+    .login-form {
+        width: 100%;
+        max-width: none;
+        padding: 20px;
+    }
+
+    .login-image {
+        display: none; /* Oculta la imagen en pantallas pequeñas */
+    }
+}
+
+@media (max-width: 480px) {
+    .login-form {
+        padding: 15px;
+    }
+
+    .login-form h2, .login-form h3 {
+        font-size: 18px; /* Reducir el tamaño de los encabezados en pantallas pequeñas */
+    }
+
+    .login-form input[type="text"],
+    .login-form input[type="password"] {
+        font-size: 14px; /* Ajustar el tamaño del texto de los inputs */
+        padding: 8px;
+    }
+
+    .btn {
+        font-size: 14px; /* Reducir el tamaño del botón */
+    }
+}
+
+.volver {
+    text-align: right;
+    margin-top: 15px;
+    text-decoration: none;
+    color: #8f8e8e;
+}
+
+#flash-messages {
+    color: black;
+    background-color: #f9f9f9;
+    list-style: none;
+    text-align: center;
+    margin-right: 15px;
+    margin-left: 15px;
+    padding: 10px;
+    
+}
