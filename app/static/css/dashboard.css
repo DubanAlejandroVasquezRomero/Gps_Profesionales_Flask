@@ -4,11 +4,10 @@ body, html {
     padding: 0;
     margin: 0;
     font-family: 'Open Sans', sans-serif;
-    background-color: #f4f4f9; /* Fondo suave para un look moderno */
+    background-color: #f4f4f9; 
     overflow: hidden;
 }
 
-/* Estilo del mapa */
 #map {
     height: 100vh;
     width: 100%;
@@ -17,7 +16,7 @@ body, html {
     padding: 0;
 }
 
-/* Estilos de la cabecera y la barra de navegación */
+
 .header {
     background-color: rgba(255, 255, 255, 0.95);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -27,21 +26,21 @@ body, html {
     padding: 10px 30px;
 }
 
-/* Contenedor de la cabecera */
+
 .container {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-/* Estilos del logo */
+
 .logo {
     width: 100px;
     height: auto;
     object-fit: contain;
 }
 
-/* Estilos del menú de la barra de navegación */
+
 .navbar ul {
     display: flex;
     list-style: none;
@@ -50,7 +49,7 @@ body, html {
 }
 
 .navbar ul li {
-    margin-right: 30px; /* Espacio entre los elementos del menú */
+    margin-right: 30px; 
 }
 
 .navbar a {
@@ -59,12 +58,12 @@ body, html {
     font-size: 16px;
     padding: 10px 15px;
     text-decoration: none;
-    transition: color 0.3s ease, border-bottom 0.3s ease;  /* Animación suave en hover */
+    transition: color 0.3s ease, border-bottom 0.3s ease;  
 }
 
 .navbar a:hover {
-    color: #007bff; /* Cambia el color del enlace al pasar el ratón */
-    border-bottom: 2px solid #007bff; /* Añadir borde inferior al pasar el ratón */
+    color: #007bff; 
+    border-bottom: 2px solid #007bff; 
 }
 
 /* Responsividad */
@@ -84,7 +83,46 @@ body, html {
     }
 
     #map {
-        height: calc(100vh - 100px); /* Ajustar el tamaño del mapa en pantallas más pequeñas */
+        height: calc(100vh - 100px);
     }
+}
+
+.profile-icon {
+    font-size: 24px;
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 20px;
+    margin-right: 60px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+
+.profile-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: white;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    min-width: 160px;
+    border-radius: 5px;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border-bottom: 1px solid #ccc;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
 }
 

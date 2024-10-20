@@ -17,11 +17,11 @@ def inicio ():
 def ver_profesionales ():
     db, c = get_db ()
     c.execute ('''
-        SELECT profesional.nombre, profesional.especializacion, profesional.telefono, 
-               ubicacion.latitud, ubicacion.longitud
-        FROM profesionales
-        INNER JOIN ubicacion ON profesional.id = ubicacion.profesional_id
-    ''')
+    SELECT profesional.nombre, profesional.especializacion, profesional.telefono, 
+           ubicacion.latitud, ubicacion.longitud
+    FROM profesional
+    INNER JOIN ubicacion ON profesional.id = ubicacion.profesional_id
+''')
     profesionales = c.fetchall ()
     return jsonify (profesionales)
 
@@ -32,3 +32,32 @@ def VerUsuario ():
     c.execute ("SELECT usuario, nombre FROM usuarios WHERE ID = %s",(g.user['id'],))
     usuario = c.fetchone()
     return render_template ("usuario/ver_perfil.html", usuario=usuario)
+
+@bp.route('/api/obtener_horas/<int:profesional_id>', methods=['POST','GET'])
+def obtener_horas(profesional_id):
+    db, c = get_db()
+
+    # Selecciona las horas disponibles para el profesional dado
+    c.execute("""
+        SELECT p.id AS profesional_id, p.nombre, p.especializacion, p.telefono, u.latitud, u.longitud, h.dia, h.hora_inicio, h.hora_fin
+    FROM GestionProfesionales.profesional p
+    JOIN GestionProfesionales.ubicacion u ON p.id = u.profesional_id
+    LEFT JOIN GestionProfesionales.horarios h ON p.id = h.profesional_id
+    WHERE p.id = %s;
+    """, (profesional_id,))
+    
+    horarios = c.fetchall()
+
+    # Organiza las horas por días
+    result = {}
+    for horario in horarios:
+        dia = horario['dia']  # Formato de fecha, si es necesario, puedes formatearlo con strftime
+        hora = f"{horario['hora_inicio']} - {horario['hora_fin']}"
+        
+        if dia not in result:
+            result[dia] = []
+        result[dia].append(hora)
+
+    # Devuelve el resultado como JSON
+    return jsonify(result)
+

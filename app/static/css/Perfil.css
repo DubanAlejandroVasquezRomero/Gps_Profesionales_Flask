@@ -90,4 +90,19 @@ p strong {
 .flecha {
     display: flex;
     justify-content: flex-start;
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: 10px;
+    width: 50px;
+}
+
+.flecha a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.flecha:hover {
+    background-color: #555555;
+    color: white;
 }

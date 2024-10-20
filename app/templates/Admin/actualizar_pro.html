@@ -1,18 +1,18 @@
-<form id="edit-professional" method="POST" action="/actualizar_profesional/{{ profesional.id }}">
+<form action="{{ url_for('admin.actualizar_profesionales', id=profesional['id']) }}" method="post">
     <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" name="nombre" value="{{ profesional.nombre }}" required>
+    <input type="text" name="nombre" value="{{ profesional['nombre'] }}" required>
 
-    <label for="especializacion">Especialidad:</label>
-    <input type="text" id="especializacion" name="especializacion" value="{{ profesional.especializacion }}" required>
+    <label for="especializacion">Especialización:</label>
+    <input type="text" name="especializacion" value="{{ profesional['especializacion'] }}" required>
 
     <label for="telefono">Teléfono:</label>
-    <input type="text" id="telefono" name="telefono" value="{{ profesional.telefono }}" required>
+    <input type="text" name="telefono" value="{{ profesional['telefono'] }}" required>
 
     <label for="latitud">Latitud:</label>
-    <input type="text" id="latitud" name="latitud" value="{{ profesional.latitud }}" required>
+    <input type="text" name="latitud" value="{{ ubicacion['latitud'] }}" required>
 
     <label for="longitud">Longitud:</label>
-    <input type="text" id="longitud" name="longitud" value="{{ profesional.longitud }}" required>
+    <input type="text" name="longitud" value="{{ ubicacion['longitud'] }}" required>
 
-    <button type="submit">Guardar Cambios</button>
+    <button type="submit">Actualizar</button>
 </form>

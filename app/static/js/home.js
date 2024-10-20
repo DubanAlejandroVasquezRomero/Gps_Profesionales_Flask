@@ -18,7 +18,7 @@ function initMap() {
                     content: `<h3>${prof.nombre}</h3>
                     <p>${prof.especializacion}</p>
                     <p>${prof.telefono}</p> 
-                     <button onclick="openSidebar(${prof.id})" class="btn btn-primary">Agendar Cita</button>`
+                     <button onclick="openModal()" class="btn btn-primary">Agendar Cita</button>`
                 });
 
                 marker.addListener('click', function() {
@@ -28,13 +28,10 @@ function initMap() {
         })
         .catch(error => {
             console.error('Error al cargar los profesionales:', error);
-        });
-
-    
-    
-
-        
+        });   
 }
 
-
-
+function openModal() {
+    var agendarCitaModal = new bootstrap.Modal(document.getElementById('agendarCitaModal'));
+    agendarCitaModal.show();
+}
