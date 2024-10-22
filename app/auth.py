@@ -65,6 +65,8 @@ def login():
             session['user_role'] = user['rol']
             if user['rol'] == 'Administrador':
                 return redirect(url_for('admin.Admin_Inicio'))
+            elif user ['rol'] == "Especialista":
+                return redirect(url_for('Profesional.dashboard_profesional'))
             else:
                 return redirect(url_for('Usuario.inicio'))
 
@@ -73,17 +75,35 @@ def login():
 
     return render_template('auth/login.html')
 
-
 @bp.before_app_request
-def login_logged_in_user ():
-    user_id = session.get ('user_id')
+def login_logged_in_user():
+    user_id = session.get('user_id')
 
     if user_id is None:
         g.user = None
     else:
-        db,c = get_db ()
-        c.execute ('SELECT * FROM usuarios WHERE ID = %s',(user_id,))
-        g.user = c.fetchone()
+        db, c = get_db()
+
+        # Cargar los datos del usuario desde la tabla `usuarios`
+        c.execute('SELECT * FROM usuarios WHERE id = %s', (user_id,))
+        user = c.fetchone()
+
+        if user:
+            # Intentar obtener el profesional_id relacionado
+            c.execute('SELECT id FROM profesional WHERE id_usuario = %s', (user_id,))
+            profesional = c.fetchone()
+
+            # Si el usuario tiene un profesional asociado, agrega el `profesional_id`
+            if profesional:
+                g.user = user
+                g.user['profesional_id'] = profesional['id']
+                print("Profesional ID cargado:", g.user['profesional_id'])
+            else:
+                g.user = user
+                print("Usuario sin profesional asociado")
+        else:
+            g.user = None
+
 
 @bp.route ('/logout')
 def logout ():
@@ -103,8 +123,25 @@ def role_required(role):
 def login_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
+        # Verificar si el usuario está logueado
         if 'user_id' not in session:
             flash('Debes estar logueado para acceder a esta página.', 'warning')
             return redirect(url_for('auth.login'))
+        
+        # Cargar información adicional del usuario
+        db, c = get_db()
+        c.execute('SELECT id, profesional_id FROM usuarios WHERE id = %s', (session['user_id'],))
+        user = c.fetchone()
+        
+        if user is None:
+            flash('Usuario no encontrado.', 'danger')
+            return redirect(url_for('auth.login'))
+        
+        # Asignar los datos del usuario al contexto global `g`
+        g.user = {
+            'id': user['id'],
+            'profesional_id': user['profesional_id']
+        }
+        
         return f(*args, **kwargs)
     return decorated_function

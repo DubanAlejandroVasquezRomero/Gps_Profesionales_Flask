@@ -1,51 +1,69 @@
-/* Contenedor principal */
+/* General */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+   
+}
+
 .login-container {
     display: flex;
-    justify-content: center; /* Centrar horizontalmente */
-    align-items: center; /* Centrar verticalmente */
-    width: 100%; /* Ocupa el 100% del ancho de la pantalla */
-    min-height: 100vh; /* Altura completa de la pantalla */
+    width: 100%;
+    max-width: 950px; /* Mantiene un ancho máximo */
+    height: auto; /* Ajuste automático según el contenido */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
+    overflow-y: auto; /* Permite scroll si el contenido excede la pantalla */
     background-color: white;
-    padding: 20px;
-    gap: 40px; /* Espaciado entre el formulario y la imagen */
+    max-height: 100vh; /* Limita la altura máxima al tamaño de la pantalla */
 }
 
 /* Formulario de login */
 .login-form {
     position: relative;
     flex: 1;
-    padding: 30px;
+    padding: 20px;
     background-color: #f9f9f9;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centra el contenido verticalmente */
-    max-width: 400px; /* Ancho máximo del formulario */
-    margin: 0 auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
+    justify-content: flex-start;
+    max-width: 100%;
+    height: auto; /* Asegura que el formulario ajuste su altura según el contenido */
 }
 
 .login-form h2 {
     color: #8f8e8e;
     text-align: left;
-    margin-bottom: 15px; /* Reducir un poco el espaciado bajo el título */
+    margin-top: 40px;
+    margin-left: 30px;
 }
 
 .login-form label {
-    font-size: 14px;
-    margin-bottom: 5px;
+    margin: 10px; /* Reduce el margen superior */
 }
 
 .login-form input[type="text"],
-.login-form input[type="password"] {
-    width: 100%;
-    padding: 8px; /* Reducir el padding para inputs más compactos */
-    margin-bottom: 12px;
-    border: 1px solid #0059fd;
-    border-radius: 8px;
-    font-size: 14px;
+.login-form input[type="password"],
+.login-form input[type="email"] {
+    width: 60%; /* Asegura que los inputs ocupen todo el espacio disponible */
+    padding: 8px; /* Reduce un poco el padding para que los campos sean más compactos */
+    margin-bottom: 15px; /* Reduce el espacio entre campos */
+    border: 1px solid  #0059fd;
+    border-radius: 10px ;
+}
+
+.login-form input,
+.login-form select {
+    width: calc(100% - 170px); /* Ajusta el tamaño de los inputs para que se alineen al lado del label */
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid  #0059fd;
+    border-radius: 10px;
 }
 
 .btn {
@@ -57,51 +75,95 @@
     border-radius: 4px;
     font-size: 16px;
     cursor: pointer;
-    margin-top: 20px;
 }
 
 .btn:hover {
     background-color: #0056b3;
 }
 
+.register-link p {
+    font-size: 14px;
+    color: #555;
+    text-align: center;
+}
+
+.register-link a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
 /* Sección de imagen */
 .login-image {
     flex: 1;
+    background-color: #fafafa;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #fafafa;
-    padding: 20px;
 }
 
 .login-image img {
-    max-width: 90%; /* Reducir el tamaño de la imagen para equilibrar con el formulario */
+    max-width: 100%;
     height: auto;
+    object-fit: contain; /* Ajusta la imagen dentro del espacio disponible sin distorsionarla */
 }
+
 
 .logo {
+    margin-right: 15px;
     position: absolute;
     top: 20px;
-    left: 20px;
-    width: 120px; /* Aumentar un poco el tamaño del logo */
+    width: 110px;
     height: auto;
+    left: 5px;
+    object-fit: contain;
+    margin-bottom: 10px;
+    padding: 0 1px;
 }
 
-/* Hacer el diseño más adaptable en pantallas pequeñas */
+.login-form input ,label {
+    margin-top: 20px;
+}
+
+
+
 @media (max-width: 768px) {
     .login-container {
-        flex-direction: column;
-        width: 100%;
-        height: auto;
-    }
-
-    .login-form {
-        width: 100%;
-        max-width: none;
-        padding: 20px;
+        flex-direction: column; /* Apila los elementos verticalmente */
+        width: 100%; /* Ocupa todo el ancho */
+        height: auto; /* Ajusta la altura automáticamente */
     }
 
     .login-image {
-        display: none;
+        display: none; /* Oculta la imagen en pantallas pequeñas */
     }
+
+    .login-form input {
+        font-size: 14px; /* Asegura que el texto en los inputs sea más pequeño */
+    }
+
+    .login-form {
+        padding: 10px; /* Reduce el padding en pantallas más pequeñas */
+    }
+}
+
+.volver {
+    text-align: right;
+    margin-top: 15px;
+    text-decoration: none;
+    color: #8f8e8e;
+}
+
+#flash-messages {
+    color: black;
+    background-color: #f9f9f9;
+    list-style: none;
+    text-align: center;
+    margin-right: 15px;
+    margin-left: 15px;
+    padding: 10px;
+    
 }
