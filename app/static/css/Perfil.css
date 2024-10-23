@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* Estilo general */
 body {
     display: flex;
@@ -106,3 +107,113 @@ p strong {
     background-color: #555555;
     color: white;
 }
+=======
+/* Estilo general */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f5;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Estilos para la barra de navegación */
+.navbar {
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    padding: 10px 0;
+}
+
+.container-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    width: 100px;
+    height: auto;
+    object-fit: contain;
+    margin-right: 30px;
+}
+
+
+
+/* Contenido del perfil */
+.container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 700px;
+    text-align: center;
+    margin-top: 120px; 
+}
+
+.image-container img {
+    object-fit: cover;
+    background-color: black;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+}
+
+.card h1 {
+    font-weight: 300;
+    color: #333333;
+    margin-top: 15px;
+    padding-bottom: 15px;
+}
+
+p {
+    font-size: 16px;
+    color: #555555;
+}
+
+p strong {
+    color: #333333;
+}
+
+/* Adaptación a pantallas pequeñas */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+.flecha {
+    display: flex;
+    justify-content: flex-start;
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: 10px;
+    width: 50px;
+}
+
+.flecha a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.flecha:hover {
+    background-color: #555555;
+    color: white;
+}
+>>>>>>> 58b5dc9cd2df97652abfd36fb01f3263eb421fa0

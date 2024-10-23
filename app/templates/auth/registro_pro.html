@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -46,3 +47,53 @@
     {% endblock %}
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/formulario.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>{% block title %}Registrarse{% endblock %}</title>
+</head>
+<body>
+    {% block content %}
+    <div class="login-container">
+        <div class="login-form">
+            <a href="{{ url_for('auth.login') }}" class="volver"><i class="fa-solid fa-arrow-left"></i></a>
+            <img src="{{ url_for('static', filename='img/Logo_GPS.png') }}" class="logo" alt="Logo">
+            <h2>Registro de Profesionales</h2>
+            <form method="post" action="/profesional">
+                <label for="usuario">Usuario:</label>
+                <input type="text" id="usuario" name="usuario" placeholder="Usuario" required>
+                <label for="contraseña">Contraseña:</label>
+                <input type="password" id="contraseña" name="contraseña" placeholder="*****" required>
+                <label for="nombre">Nombre:</label>
+                <input id="nombre" name="nombre" type="text" placeholder="Nombre" required>
+                <label for="telefono">Teléfono:</label>
+                <input id="telefono" name="telefono" type="text" placeholder="Teléfono" required>
+                <label for="email">Correo:</label>
+                <input id="email" name="email" type="email" placeholder="Correo" required>
+                <label for="latitud">Latitud:</label>
+                <input type="text" name="latitud" id="latitud" placeholder="Latitud" required>
+                <label for="longitud">Longitud:</label>
+                <input type="text" name="longitud" id="longitud" placeholder="Longitud" required>
+                <label for="especializacion">Especialidad:</label>
+                <input type="text" id="especializacion" name="especializacion" required placeholder="especializacion">
+                <label for="rol">Rol:</label>
+                <select name="rol" id="rol">
+                    <option value="Especialista">Especialista</option>
+                </select>
+                <input class="btn" type="submit" value="Registrarse">
+            </form>
+        </div>
+        <img class="login-image" src="{{ url_for('static', filename='img/Dibujo.png') }}" alt="Gráfico derecho">
+    </div>
+    {% endblock %}
+</body>
+</html>
+>>>>>>> 58b5dc9cd2df97652abfd36fb01f3263eb421fa0

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -31,3 +32,38 @@
     </div>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Perfil.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Perfil De Usuario</title>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="container-nav">
+                <a href=""><img src="{{ url_for('static', filename='img/Logo_GPS.png') }}" class="logo" alt="Logo"></a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="flecha">
+            <a href="{{ url_for('Usuario.inicio') }}" class="volver"><i class="fa-solid fa-arrow-left"></i>Volver</a>
+        </div>
+        <div class="image-container">
+            <img src="{{ url_for('static', filename='img/User.png') }}" alt="Foto de perfil del usuario">
+        </div>
+        <div class="card">
+            <h1>Perfil de Usuario</h1>
+            <p><strong>Usuario:</strong> {{ usuario.usuario }}</p>
+            <p><strong>Nombre:</strong> {{ usuario.nombre }}</p>
+        </div>
+    </div>
+</body>
+</html>
+>>>>>>> 58b5dc9cd2df97652abfd36fb01f3263eb421fa0

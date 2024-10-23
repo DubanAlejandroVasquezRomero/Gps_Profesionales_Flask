@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <form action="{{ url_for('admin.actualizar_profesionales', id=profesional['id']) }}" method="post">
     <label for="nombre">Nombre:</label>
     <input type="text" name="nombre" value="{{ profesional['nombre'] }}" required>
@@ -16,3 +17,23 @@
 
     <button type="submit">Actualizar</button>
 </form>
+=======
+<form action="{{ url_for('admin.actualizar_profesionales', id=profesional['id']) }}" method="post">
+    <label for="nombre">Nombre:</label>
+    <input type="text" name="nombre" value="{{ profesional['nombre'] }}" required>
+
+    <label for="especializacion">Especialización:</label>
+    <input type="text" name="especializacion" value="{{ profesional['especializacion'] }}" required>
+
+    <label for="telefono">Teléfono:</label>
+    <input type="text" name="telefono" value="{{ profesional['telefono'] }}" required>
+
+    <label for="latitud">Latitud:</label>
+    <input type="text" name="latitud" value="{{ ubicacion['latitud'] }}" required>
+
+    <label for="longitud">Longitud:</label>
+    <input type="text" name="longitud" value="{{ ubicacion['longitud'] }}" required>
+
+    <button type="submit">Actualizar</button>
+</form>
+>>>>>>> 58b5dc9cd2df97652abfd36fb01f3263eb421fa0

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,3 +36,42 @@
     </script>
 </body>
 
+=======
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ProAgendify</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/usuario.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href=""><img src="{{ url_for('static', filename='img/Logo_GPS.png') }}" class="logo" alt="Logo"></a>
+            <nav class="navbar">
+                <a href=""></a>
+                <div class="profile-dropdown">
+                    <span class="profile-icon" onclick="toggleDropdown()">&#128100;</span>
+                    <div id="dropdown" class="dropdown-content">
+                        <a href="{{ url_for('Usuario.VerUsuario') }}">Ver Perfil</a>
+                        <a href="{{ url_for('admin.ver_profesional') }}">Gestion Profesionales</a>
+                        <a href="{{ url_for('auth.logout') }}">Cerrar Sesión</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <div id="map"></div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+        <script src="{{ url_for('static', filename='js/dropdown-menu.js') }}"></script>
+    <script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWWcsRi1yf6NWy-88fBs7lHpq1pmBgHbI&loading=async&callback=initMap">
+    </script>
+</body>
+
+>>>>>>> 58b5dc9cd2df97652abfd36fb01f3263eb421fa0

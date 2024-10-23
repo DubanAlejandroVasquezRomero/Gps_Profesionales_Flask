@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <form action="{{ url_for('Profesional.crear_horario') }}" method="POST">
     <div class="mb-3">
         <label for="dia" class="form-label">Día</label>
@@ -17,3 +18,24 @@
 
 
 
+=======
+<form action="{{ url_for('Profesional.crear_horario') }}" method="POST">
+    <div class="mb-3">
+        <label for="dia" class="form-label">Día</label>
+        <input type="date" class="form-control" id="dia" name="dia" required>
+    </div>
+    <div class="mb-3">
+        <label for="hora_inicio" class="form-label">Hora de Inicio</label>
+        <input type="time" class="form-control" id="hora_inicio" name="hora_inicio" required>
+    </div>
+    <div class="mb-3">
+        <label for="hora_fin" class="form-label">Hora de Fin</label>
+        <input type="time" class="form-control" id="hora_fin" name="hora_fin" required>
+    </div>
+    <input type="hidden" name="profesional_id" value="{{ profesional_id }}">
+    <button type="submit" class="btn btn-primary">Crear Horario</button>
+</form>
+
+
+
+>>>>>>> 58b5dc9cd2df97652abfd36fb01f3263eb421fa0
